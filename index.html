@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe | Play Now</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+</head>
+<body>
+  <!-- 9:16 Aspect Ratio Container -->
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <nav>
+        <button  id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙 Dark Mode</button>
+      </nav>
+    </header>
+
+    <!-- Mode Selection Screen -->
+    <section class="mode-screen">
+      
+      <br>
+      <h1> <font size=6.5> Tic Tac Toe </font></h1>
+      <br>
+      <p style="font-size: 1.2rem;">1911</p>
+      <br>
+      <button id="play-friend">🎮 Play with Friend</button>
+      <br>
+      
+      <button id="play-bot">🤖 Play with Bot</button>
+      <br><br>
+      <br>
+      <br>
+      <br>
+      <button id="open-terms" class="terms-button">📜 Terms & Services</button>
+    </section>
+
+    <!-- Bot Difficulty Selection -->
+    <section class="bot-mode-screen" style="display: none;">
+      <h1>Select Difficulty</h1>
+      <br>
+      
+      <p style="font-size: 0.9rem;">1911</p>
+      <button id="easy-mode">😊 Easy</button>
+      <button id="medium-mode">😏 Medium</button>
+      <button id="hard-mode">😈 Hard</button>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <button id="back-to-mode">⬅️ Back</button>
+    </section>
+
+    <!-- Game Screen -->
+    <main class="game-container" style="display: none;">
+      <button id="back-button" style="display: none;">⬅️   Back</button>
+      <h1> <font size=5>Tic Tac Toe </font></h1>
+      <div class="board" id="board" role="grid" aria-label="Tic Tac Toe Board"></div>
+      <p class="status" id="status" role="status">Player X's turn</p>
+      <button id="reset" aria-label="Restart Game">🔄 Restart Game</button>
+    </main>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="terms-modal" class="modal">
+      <div class="modal-content">
+        <h2>📜 Terms and Conditions</h2>
+        <p><em>Last Updated: 16 Feb 2025</em></p>
+        <p>Welcome to <strong>Tic Tac Toe</strong>! By accessing or using this game, you agree to the following terms and conditions.</p>
+<div class="scroll-box">
+        <h3>1. Game Overview</h3>
+        <p>Tic Tac Toe is a web-based mobile game designed for casual and multiplayer play. No account registration is required.</p>
+
+        <h3>2. Multiplayer Mode</h3>
+        <p>The game includes a multiplayer mode where users can play against each other. Fair play is encouraged, but there are no strict rules or restrictions.</p>
+
+        <h3>3. Data Collection & Privacy</h3>
+        <p>Tic Tac Toe does not collect or store personal user data. Any game preferences (e.g., dark mode settings) may be stored locally on your device.</p>
+
+        <h3>4. Bugs & Support</h3>
+        <p>If you encounter any bugs or issues, please contact the developer via Discord: <strong>aryansemwal1911</strong>.</p>
+
+        <h3>5. Updates & Modifications</h3>
+        <p>The game may receive updates or modifications as needed to improve performance, add new features, or fix bugs.</p>
+
+        <h3>6. Limitation of Liability</h3>
+        <ul>
+          <li>The game is provided "as is" without any warranties or guarantees of uninterrupted service.</li>
+          <li>The developer is not responsible for any data loss, device issues, or other problems that may arise from using the game.</li>
+        </ul>
+
+        <h3>7. Certification & Compliance</h3>
+        <p>Tic Tac Toe is not yet certified but will be soon. Once certified, any necessary changes to these terms will be updated accordingly.</p>
+
+        <h3>8. Changes to Terms</h3>
+        <p>These Terms and Conditions may be updated at any time. Continued use of the game after changes means you accept the new terms.</p>
+
+        <p>By playing Tic Tac Toe, you acknowledge and agree to these Terms and Conditions.</p>
+</div>
+
+        <button class="close-btn" id="close-terms">Close</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Tic Tac Toe | Designed by Aryan1911</p>
+    </footer>
+  </div>
+
+  <script>
+    // Open Terms Modal
+    document.getElementById("open-terms").addEventListener("click", function() {
+      document.getElementById("terms-modal").style.display = "block";
+      document.querySelector(".game-container").style.display = "none"; // Hide game screen
+      document.querySelector(".mode-screen").style.display = "none";  // Hide mode selection
+    });
+
+    // Close Terms Modal
+    document.getElementById("close-terms").addEventListener("click", function() {
+      document.getElementById("terms-modal").style.display = "none";
+      document.querySelector(".game-container").style.display = "flex"; // Show game screen again
+      document.querySelector(".mode-screen").style.display = "flex";  // Show mode selection screen again
+    });
+
+    // Close modal if clicked outside
+    window.addEventListener("click", function(event) {
+      if (event.target == document.getElementById("terms-modal")) {
+        document.getElementById("terms-modal").style.display = "none";
+        document.querySelector(".game-container").style.display = "flex"; // Show game screen
+        document.querySelector(".mode-screen").style.display = "flex";  // Show mode selection screen
+      }
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

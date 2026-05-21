@@ -1,0 +1,268 @@
+/* 🌟 General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #f4f4f9, #e8eaf6);
+  color: #333;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+
+/* 🎯 Header */
+header {
+  background: rgba(44, 62, 80, 0.8);
+  padding: 4px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header button {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 1rem;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+header button:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+/* 🎮 Buttons */
+button {
+  padding: 12px 16px;
+  margin: 10px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 85%;
+  max-width: 320px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  transition: transform 0.2s ease, background 0.3s ease;
+  box-sizing: border-box; /* Ensure padding doesn’t break the layout */
+}
+
+button:hover {
+  background: linear-gradient(135deg, #2980b9, #1e6aa1);
+  transform: scale(1.04);
+}
+
+button:focus {
+  outline: none;
+}
+
+/* 🎲 Game Container */
+.game-container, .mode-screen, .bot-mode-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin: 0 15px;
+}
+
+/* 🎯 9:16 Aspect Ratio Layout */
+.container {
+  width: 90vw; /* Adjust width to fit the screen */
+  height: calc(90vw * 16 / 9); /* Maintain 9:16 aspect ratio */
+  max-width: 34%; /* Max width for larger screens */
+  max-height: 100%; /* Max height for larger screens */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 🎯 Tic Tac Toe Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 65%;
+  height: 120%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px; /* Space between board and buttons */
+}
+
+/* 🔲 Board Cells */
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.cell:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
+/* 🎉 Winner Highlight */
+@keyframes blink {
+  0% { background-color: #2ecc71; }
+  50% { background-color: #27ae60; }
+  100% { background-color: #2ecc71; }
+}
+
+.winner {
+  animation: blink 1s infinite;
+  color: white !important;
+}
+
+/* 🔴 Player Colors */
+.cell.x {
+  color: #e74c3c;
+}
+
+.cell.o {
+  color: #2980b9;
+}
+
+/* ℹ️ Status Text */
+.status {
+  font-size: 0.9rem;
+  margin-top: 20px;
+  font-weight: 400;
+  margin-bottom: 20px; /* Adds spacing between status text and buttons */
+}
+
+/* 🔻 Footer */
+footer {
+  text-align: center;
+  padding: 2px;
+  background-color: rgba(44, 62, 80, 0.8);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* 🌙 Dark Mode */
+.dark-mode {
+  background: linear-gradient(to right, #121212, #1e1e1e);
+  color: #fff;
+}
+
+.dark-mode .board {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .cell {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  
+}
+
+.dark-mode .cell:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode header, .dark-mode footer {
+  background-color: rgba(26, 36, 47, 0.8);
+}
+
+/* 🌙 Dark Mode for Modal */
+.dark-mode .modal-content {
+  background: #333; /* Dark background for the modal */
+  color: #fff; /* Light text color for readability */
+}
+
+.dark-mode .modal-content h2,
+.dark-mode .modal-content h3 {
+  color: #f4f4f9; /* Lighter text for headings */
+}
+
+.dark-mode .close-btn {
+  background: #e74c3c; /* Red button in dark mode */
+  color: white;
+  
+}
+
+#terms-modal {
+  display: none;
+}
+
+/* Scroll */
+.scroll-box{
+  width: 100%;
+  height: 270px;
+  border: 2px solid rgb(60, 60, 60);
+overflow-y: scroll;}
+
+.dark-mode .modal-content p,
+.dark-mode .modal-content ul {
+  color: #ccc; /* Light text for paragraphs and lists */
+}
+
+.dark-mode .modal-content a {
+  color: #3498db; /* Make links visible in dark mode */
+}
+
+.dark-mode .modal-content ul li {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+/* ✅ Full Mobile Optimization */
+@media (max-width: 600px) {
+  body {
+    padding: 8px;
+  }
+
+  .container {
+    width: 90vw; /* Full width on mobile */
+    height: calc(90vw * 16 / 9); /* Maintain 9:16 ratio on mobile */
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .board {
+    width: 90vw; /* Full width on mobile */
+    height: 90vw; /* Keep square shape */
+    max-width: 100%;
+  }
+
+  button {
+    width: 95%;
+    font-size: 1.2rem;
+    padding: 14px; /* Bigger touch area */
+  }
+
+  .status {
+    font-size: 1.3rem;
+    padding: 5px;
+  }
+
+  .cell {
+    font-size: 3rem; /* Bigger font */
+  }
+
+  header button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
